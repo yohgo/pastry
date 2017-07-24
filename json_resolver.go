@@ -9,8 +9,8 @@ import (
 type JSONResolver struct{}
 
 // ResolveJSONError returns a default json error response
-func (resolver *JSONResolver) ResolveJSONError(w http.ResponseWriter, code int, message string) {
-	resolver.ResolveJSON(w, code, map[string]string{"error": message})
+func (resolver *JSONResolver) ResolveJSONError(w http.ResponseWriter, code int, title, description string) {
+	resolver.ResolveJSON(w, code, map[string]string{"error": title, "error_description": description})
 }
 
 // ResolveJSON returns a json encoded response
